@@ -43,5 +43,10 @@ model.fit(x_train, y_train, epochs=5)
 #evaluates model performance.
 model.evaluate(x_test,  y_test, verbose=2)
 
+model.summary()
+
+model.save('saved_model')
 
 # The above code is from the into to tensorflow, as an example DL model.
+#This following line is run from command line, and converts this tensorflow model into a ONNX model. saving it as model.onnx
+#python -m tf2onnx.convert --saved-model saved_model --output model.onnx  
