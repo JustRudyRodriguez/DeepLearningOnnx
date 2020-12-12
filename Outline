@@ -1,0 +1,29 @@
+Introduction to onnx
+
+Use cases
+-Making windows applications
+     https://docs.microsoft.com/en-us/windows/ai/windows-ml/get-onnx-model
+-creating model in cloud then converting to local machine
+    https://docs.microsoft.com/en-us/windows/ai/windows-ml/train-model-pytorch
+-is itself a platform for creating models
+    https://medium.com/@santhoshkolloju/convert-your-pytorch-models-to-tensorflow-with-onnx-84c3bdd8d722
+    https://github.com/onnx/onnxmltools
+
+-converting from one framework to another.
+-standardization for scoring models
+benifits
+-good for community, as it allows for different projects to work together.
+https://onnx.ai/about.html
+- portablitiy
+    https://medium.com/moonvision/onnx-the-long-and-collaborative-road-to-machine-learning-portability-a6416a96e870
+
+
+Companies
+-discuss the companies that are supporting this project
+microsoft is a big one.
+
+our practical example- Rudy
+just describe what is happening with the code. Detail anything we find necessary.
+
+conclusion-
+re-iterate the stuff we covered, we should try 2 pages.
