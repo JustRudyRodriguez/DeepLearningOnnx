@@ -1,0 +1,21 @@
+Converting from one framework to another
+
+As we it should be clearly apparent the main purpose of ONNX is a shared format for all ai frameworks.
+Having a standard format is a key first step, but we can move further beyond that using ONNX. Say we have a Machine learning data scientist who is working in a pytorch workflow.
+He wants to try and review the machine learning model a fellow scientist has, but the other scientist has a workflow geared around tensorflow.
+Now if they setup a ONNX runtime, they could just end it here and run the model using the .ONNX model.
+However via onnx we can do one better, this theoretical data scientist can convert the tensorflow model into a ONNX model, and then from there convert that model into a pytorch model.
+This level of flexiblity is a first in this field, and offers data scientist and those working with these machine learning ai an opportunity to share and work cooperatively with extemely high level of ease.
+
+
+Example explaination-https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/quickstart/beginner.ipynb
+
+In our practical example we go through the process of creating a deap learning model in both tensorflow and in pytorch, after which we then convert them into .onnx models.
+We then use the onnx runtime to validate that they are both readable and ready for use with onnx.
+Due to the length of time it would take to learn how to implement two different frameworks, we have elected to using default settings for our machine learning model, and based them off MNIST dataset.
+Tensorflow does not have a robust set of tools for exporting your model into a .onnx model. In "Tensor.py" We train a Sequential keras model, with 128 layers. This returns a set of logits that are converted into predictions via the softmax() function.
+At this point the model is untrained, so most predictions are random, so we train and compile the model. Tensorflow/keras does it's magic, and begins to train the model. By the time we complete, our model is 98% accurate with the dataset, so we save this for converting as "/saved_model".
+As we mentioned above tensorflow/keras does not have built in support for conversion into onnx models, but there exists small libraries for just this. A single string command, (referenced in comments in code) we convert the tensorflow model into a onnx model as "model.onnx".
+Now when proceeding with the pytorch model,in "pytorch.py" we go with a much simpler approach. We load in a pre-trained model from the pytorch defaults, and using built in exporting tools we create a .onnx file named "pytorch.onnx"
+When looking at the line count, we can see that the process is drastically easier with pytorch, but this should not be a discouragement to using other models.
+To complete our practial example, in"OnnxTest.py" I load in both of the .onnx models we have created, one via pytorch the other via tensorflow. We proceed with running a checker() function built into the onnx runtime and both pass fine. This showed that yes the onnx model can and does move past the limitations of working with a single machine learning framework.
